@@ -126,6 +126,16 @@ TAILWIND_APP_NAME = "theme"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# Django Channels
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [config("REDIS_BACKEND")],
+        },
+    },
+}
+
 # Celery
 CELERY_BROKER_URL = config("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = config("REDIS_BACKEND")
