@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # Third-party apps
     "tailwind",
+    "chatterbot.ext.django_chatterbot",
     # Local apps
     "chat",
     "theme",
@@ -139,3 +140,11 @@ CHANNEL_LAYERS = {
 # Celery
 CELERY_BROKER_URL = config("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = config("REDIS_BACKEND")
+
+# Chatterbot
+CHATTERBOT = {
+    "name": "User Support Bot",
+    "logic_adapters": [
+        "chatterbot.logic.BestMatch",
+    ],
+}

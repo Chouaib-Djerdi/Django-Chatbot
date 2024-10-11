@@ -20,6 +20,10 @@ RUN apt-get update && \
     pip install --upgrade pip && \
     pip install -r requirements.txt
 
+# Install NLTK and download required data (punkt, stopwords, wordnet, and punkt_tab)
+RUN python -m nltk.downloader punkt stopwords wordnet averaged_perceptron_tagger && \
+    python -m nltk.downloader punkt_tab
+
 # Verify Node.js and npm versions
 RUN echo "NODE Version:" && node --version && \
     echo "NPM Version:" && npm --version
