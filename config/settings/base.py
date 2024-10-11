@@ -22,14 +22,18 @@ ALLOWED_HOSTS = config("ALLOWED_HOSTS", cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third-party apps
+    "tailwind",
     # Local apps
     "chat",
+    "theme",
 ]
 
 MIDDLEWARE = [
@@ -60,8 +64,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "config.wsgi.application"
+# WSGI_APPLICATION = "config.wsgi.application"
 
+ASGI_APPLICATION = "config.asgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
@@ -112,6 +117,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
+
+# Tailwind
+TAILWIND_APP_NAME = "theme"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
